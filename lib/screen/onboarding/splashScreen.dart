@@ -1,12 +1,9 @@
-import 'dart:async';
-
+import 'package:clickaeventsp/screen/widgets/bodyBackground.dart';
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:clickaeventsp/screen/onboarding/loginScreen.dart';
+import 'package:clickaeventsp/style/style.dart';
 import 'package:flutter_svg/svg.dart';
-
-
-
-import '../../style/style.dart';
-import 'loginScreen.dart';
 
 class splashScreen extends StatefulWidget {
   const splashScreen({super.key});
@@ -35,17 +32,19 @@ class _splashScreenState extends State<splashScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
-      body: Stack(
-        children: [
-          ScreenBackground(context),
-          Container(
-            padding: EdgeInsets.all(30),
-            child: Center(
-                child: SvgPicture.asset("assets/images/logo.svg",alignment: Alignment.center)
-            ),
-          )
-        ],
+      //backgroundColor: Colors.blueAccent,
+      body: BodyBackground(
+        child: Stack(
+          children: [
+            ScreenBackground(context),
+            Container(
+              padding: EdgeInsets.all(30),
+              child: Center(
+                  child: SvgPicture.asset("assets/images/logo.svg",alignment: Alignment.center)
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

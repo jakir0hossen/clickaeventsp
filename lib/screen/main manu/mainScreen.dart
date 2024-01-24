@@ -77,7 +77,7 @@ class _mainScreenState extends State<mainScreen> {
      );
   }
   getBodyWiget() {
-  return (currentIndex==0)? HomePage():Container();
+  return (currentIndex==0)? HomePage(title: 'HomePage',):Container();
   }
 
 }

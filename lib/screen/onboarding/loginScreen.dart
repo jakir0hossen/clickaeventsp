@@ -1,7 +1,10 @@
+import 'package:clickaeventsp/screen/main%20manu/mainScreen.dart';
+import 'package:clickaeventsp/screen/widgets/bodyBackground.dart';
+import 'package:clickaeventsp/style/style.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
-import '../../style/style.dart';
 
 class loginScreen extends StatefulWidget {
   const loginScreen({super.key});
@@ -12,8 +15,30 @@ class loginScreen extends StatefulWidget {
 
 class _loginScreenState extends State<loginScreen> {
 
+  final TextEditingController emailController= TextEditingController();
+  final TextEditingController passwordController= TextEditingController();
+
+
   Map<String,String> FormValues={"email":"", "password":""};
   bool Loading=false;
+
+
+  Future loginUser() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) =>mainScreen()));
+
+    } catch (e) {
+      print("Failed: $e");
+
+    }
+  }
+
+
 
   InputOnChange(MapKey, Textvalue){
     setState(() {
@@ -21,7 +46,7 @@ class _loginScreenState extends State<loginScreen> {
     });
   }
 
-  // FormOnSubmit() async{
+  // FormOnSubmit() async {
   //   if(FormValues['email']!.length==0){
   //     ErrorToast('Email Required !');
   //   }
@@ -46,92 +71,98 @@ class _loginScreenState extends State<loginScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+        title: Text('clickAEvent'),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+        automaticallyImplyLeading: false,
       ),
-      backgroundColor: Colors.blueAccent,
-      body: Stack(
-        children: [
-          ScreenBackground(context),
-          Container(
-            alignment: Alignment.center,
-            child: Loading?(Center(child: CircularProgressIndicator())):(SingleChildScrollView(
-              padding: EdgeInsets.all(30),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("Get Started With", style: Head1Text(colorWhite)),
-                  SizedBox(height: 1),
-                  Text("Click A Event", style: Head6Text(colorWhite)),
-                  SizedBox(height: 20),
+      //backgroundColor: Colors.blueAccent,
 
-                  TextFormField(
-                    onChanged: (Textvalue){
-                      InputOnChange("email",Textvalue);
-                    },
-                    decoration: AppInputDecoration("Email Address"),
-                  ),
-
-                  SizedBox(height: 20),
-
-                  TextFormField(
-                    onChanged: (Textvalue){
-                      InputOnChange("password",Textvalue);
-                    },
-                    decoration: AppInputDecoration("Password"),
-                  ),
-
-                  SizedBox(height: 20),
-
-
-                  Container(child: ElevatedButton(
-                    style: AppButtonStyle(),
-                    child: SuccessButtonChild('Login'),
-                    onPressed: (){
-                      // FormOnSubmit();
-                    },
-                  ),),
-
-                  SizedBox(height: 20),
-
-
-                  Container(
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        SizedBox(height: 20),
-                        InkWell(
-                            onTap: (){
-                              Navigator.pushNamed(context, "/emailVerification");
-                            },
-                            child: Text('Forget Password?',style: Head6Text(colorWhite),
-                            )
-                        ),
-
-                        SizedBox(height: 15),
-
-                        InkWell(
-                            onTap: (){
-                              Navigator.pushNamed(context, "/registration");
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("Don't have a account? ",style: Head6Text(colorDarkBlue)),
-                                Text("Sign Up",style: Head6Text(colorWhite),)
-                              ],
-                            )
-                        )
-                      ],
+      body: BodyBackground(
+        child: Stack(
+          children: [
+            ScreenBackground(context),
+            Container(
+              alignment: Alignment.center,
+              child: Loading?(Center(child: CircularProgressIndicator())):(SingleChildScrollView(
+                padding: EdgeInsets.all(30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("Get Started With", style: Head1Text(colorWhite)),
+                    SizedBox(height: 1),
+                    Text("Click A Event", style: Head6Text(colorWhite)),
+                    SizedBox(height: 20),
+        
+                    TextFormField(
+                      controller: emailController ,
+                      onChanged: (Textvalue){
+                        InputOnChange("email",Textvalue);
+                      },
+                      decoration: AppInputDecoration("Email Address"),
                     ),
-                  )
-
-
-                ],
-              ),
-            )),
-          )
-        ],
+        
+                    SizedBox(height: 20),
+        
+                    TextFormField(
+                      controller: passwordController,
+                      onChanged: (Textvalue){
+                        InputOnChange("password",Textvalue);
+                      },
+                      decoration: AppInputDecoration("Password"),
+                    ),
+        
+                    SizedBox(height: 20),
+        
+        
+                    Container(child: ElevatedButton(
+                      style: AppButtonStyle(),
+                      child: SuccessButtonChild('Login'),
+                      onPressed: (){
+                        loginUser();
+                      },
+                    ),),
+        
+                    SizedBox(height: 20),
+        
+        
+                    Container(
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: [
+                          SizedBox(height: 20),
+                          InkWell(
+                              onTap: (){
+                                Navigator.pushNamed(context, "/emailVerification");
+                              },
+                              child: Text('Forget Password?',style: Head6Text(colorWhite),
+                              )
+                          ),
+        
+                          SizedBox(height: 15),
+        
+                          InkWell(
+                              onTap: (){
+                                Navigator.pushNamed(context, "/SignUpPage");
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("Don't have a account? ",style: Head6Text(colorDarkBlue)),
+                                  Text("Sign Up",style: Head6Text(colorRed),)
+                                ],
+                              )
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )),
+            )
+          ],
+        ),
       ),
     );
   }

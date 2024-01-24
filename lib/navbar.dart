@@ -1,6 +1,4 @@
-
-
- import 'package:flutter/cupertino.dart';
+import 'package:clickaeventsp/screen/onboarding/loginScreen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -71,7 +69,10 @@ class Navbar extends StatelessWidget{
           ListTile(
             leading:Icon(Icons.exit_to_app) ,
             title:Text("Log Out") ,
-            onTap: (){} ,
+            onTap: (){
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) =>loginScreen()));
+            } ,
           ),
 
         ],

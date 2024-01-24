@@ -1,7 +1,6 @@
+import 'package:clickaeventsp/style/style.dart';
 import 'package:flutter/material.dart';
 
-import '../../style/style.dart';
-import '../../utility/utility.dart';
 
 class pinVerificationScreen extends StatefulWidget {
   const pinVerificationScreen({super.key});

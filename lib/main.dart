@@ -8,6 +8,7 @@ import 'package:clickaeventsp/screen/onboarding/registrationScreen.dart';
 import 'package:clickaeventsp/screen/onboarding/setPasswordScreen.dart';
 import 'package:clickaeventsp/screen/onboarding/splashScreen.dart';
 import 'package:clickaeventsp/screen/profile/ProfilePage.dart';
+import 'package:clickaeventsp/style/style.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -29,14 +30,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.blueAccent),
+      theme: ThemeData(
+          primaryColor: Colors.red,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.black,
+          ),
+        ),
+      ),
        title: "Click A Event",
-       initialRoute :'/Calendar',
+       initialRoute :'/splashScreen',
        routes:{
 
          '/splashScreen':(context)=> splashScreen(),
          '/login':(context)=> loginScreen(),
-         '/registration':(context)=> registrationScreen(),
+         '/SignUpPage':(context)=> registrationScreen(),
          '/emailVerification':(context)=> emailVerificationScreen(),
          '/setPassword':(context)=> setPasswordScreen(),
          '/pinVerification':(context)=> pinVerificationScreen(),
