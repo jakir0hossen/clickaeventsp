@@ -57,7 +57,6 @@ class _registrationScreenState extends State<registrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.blueAccent,
       body: BodyBackground(
         child: Stack(
           children: [
@@ -74,7 +73,7 @@ class _registrationScreenState extends State<registrationScreen> {
                           children: [
                             Text("Join With Us", style: Head1Text(colorDarkBlue)),
                             SizedBox(height: 1),
-                            Text("Click A Event", style: Head6Text(colorWhite)),
+                            Text("Click A Event", style: Head6Text(colorDarkBlue)),
         
                             SizedBox(height: 20),
                             TextFormField(

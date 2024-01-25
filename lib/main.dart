@@ -30,17 +30,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primaryColor: Colors.red,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.red,
-            foregroundColor: Colors.black,
-          ),
-        ),
-      ),
+      // theme: ThemeData(
+      //     primaryColor: Colors.red,
+      //   elevatedButtonTheme: ElevatedButtonThemeData(
+      //     style: ElevatedButton.styleFrom(
+      //       backgroundColor: Colors.red,
+      //       foregroundColor: Colors.black,
+      //     ),
+      //   ),
+      // ),
        title: "Click A Event",
-       initialRoute :'/splashScreen',
+       initialRoute :'/mainScreen',
        routes:{
 
          '/splashScreen':(context)=> splashScreen(),

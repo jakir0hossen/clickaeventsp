@@ -1,3 +1,4 @@
+import 'package:clickaeventsp/screen/widgets/bodyBackground.dart';
 import 'package:flutter/material.dart';
 
 import '../../style/style.dart';
@@ -39,43 +40,45 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
-      body: Stack(
-        children: [
-          ScreenBackground(context),
-          Container(
-              alignment: Alignment.center,
-              child: Loading?(Center(child: CircularProgressIndicator())):(
-                  SingleChildScrollView(
-                    padding: EdgeInsets.all(30),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Your Email Address", style: Head1Text(colorDarkBlue)),
-                        SizedBox(height: 1),
-                        Text("A 6 digit verification pin will send to your email address", style: Head6Text(colorWhite)),
-                        SizedBox(height: 20),
-                        TextFormField(
-                          onChanged: (Textvalue){
-                            InputOnChange("email",Textvalue);
-                          },
-                          decoration: AppInputDecoration("Email Address"),
-                        ),
-                        SizedBox(height: 20),
-                        Container(child: ElevatedButton(
-                          style: AppButtonStyle(),
-                          child: SuccessButtonChild('Next'),
-                          onPressed: (){
-                            // FormOnSubmit();
-                          },
-                        ),)
-                      ],
-                    ),
-                  )
-              )
-          )
-        ],
+
+      body: BodyBackground(
+        child: Stack(
+          children: [
+            ScreenBackground(context),
+            Container(
+                alignment: Alignment.center,
+                child: Loading?(Center(child: CircularProgressIndicator())):(
+                    SingleChildScrollView(
+                      padding: EdgeInsets.all(30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Your Email Address", style: Head1Text(colorDarkBlue)),
+                          SizedBox(height: 1),
+                          Text("A 6 digit verification pin will send to your email address", style: Head6Text(colorDarkBlue)),
+                          SizedBox(height: 20),
+                          TextFormField(
+                            onChanged: (Textvalue){
+                              InputOnChange("email",Textvalue);
+                            },
+                            decoration: AppInputDecoration("Email Address"),
+                          ),
+                          SizedBox(height: 20),
+                          Container(child: ElevatedButton(
+                            style: AppButtonStyle(),
+                            child: SuccessButtonChild('Next'),
+                            onPressed: (){
+                              // FormOnSubmit();
+                            },
+                          ),)
+                        ],
+                      ),
+                    )
+                )
+            )
+          ],
+        ),
       ),
     );
   }

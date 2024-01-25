@@ -21,29 +21,29 @@ class MapScreenState extends State<ProfilePage>
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
 
       appBar: AppBar(
         title: Center(child: Text("Profile",style: TextStyle(color: colorBlue,fontSize: 25,fontWeight: FontWeight.w700),)),
 
       ),
 
-        body: new Container(
+        body: Container(
           color: Colors.white,
-          child: new ListView(
+          child: ListView(
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  new Container(
+                  Container(
                     height: 150,
                     color: Colors.white,
-                    child: new Column(
+                    child: Column(
                       children: <Widget>[
 
                         Padding(
                           padding: EdgeInsets.only(top: 5),
-                          child: new Stack(fit: StackFit.loose, children: <Widget>[
-                            new Row(
+                          child: Stack(fit: StackFit.loose, children: <Widget>[
+                            Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
@@ -53,7 +53,7 @@ class MapScreenState extends State<ProfilePage>
                                       child: Container(
                                           width: 100,
                                           height: 100,
-                                          decoration: new BoxDecoration(
+                                          decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                             image: new DecorationImage(
                                               image:  ExactAssetImage(

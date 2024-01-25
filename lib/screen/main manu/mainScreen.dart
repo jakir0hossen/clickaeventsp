@@ -1,6 +1,7 @@
 
 
 import 'package:clickaeventsp/screen/main%20manu/searchBar.dart';
+import 'package:clickaeventsp/style/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,12 +12,7 @@ import 'HomePage.dart';
 
 class mainScreen extends StatefulWidget {
   const mainScreen({super.key});
-
-  MySnakesBar(massage,context){
-    return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(massage))
-    );
-  }
+  
 
 
   @override
@@ -34,8 +30,11 @@ class _mainScreenState extends State<mainScreen> {
      return Scaffold(
        drawer: Navbar(),
        appBar: AppBar(
-         backgroundColor: Colors.blueAccent,
-         title: Text("Click A Event",style: TextStyle(color: Colors.white),),
+         backgroundColor: colorRed,
+         centerTitle: true,
+         title: Text("Click A Event",style: TextStyle(color: Colors.white),
+
+         ),
 
          actions: [
            IconButton(onPressed: (){

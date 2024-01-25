@@ -71,7 +71,7 @@ class _loginScreenState extends State<loginScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('clickAEvent'),
+        title: const Text('Click A Event',style: TextStyle(color: Colors.white),),
         centerTitle: true,
         backgroundColor: Colors.red,
         automaticallyImplyLeading: false,
@@ -90,9 +90,9 @@ class _loginScreenState extends State<loginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("Get Started With", style: Head1Text(colorWhite)),
+                    Text("Get Started With", style: Head1Text(colorDarkBlue)),
                     SizedBox(height: 1),
-                    Text("Click A Event", style: Head6Text(colorWhite)),
+                    Text("Click A Event", style: Head6Text(colorDarkBlue)),
                     SizedBox(height: 20),
         
                     TextFormField(
@@ -136,7 +136,7 @@ class _loginScreenState extends State<loginScreen> {
                               onTap: (){
                                 Navigator.pushNamed(context, "/emailVerification");
                               },
-                              child: Text('Forget Password?',style: Head6Text(colorWhite),
+                              child: Text('Forget Password?',style: Head6Text(colorDarkBlue),
                               )
                           ),
         

@@ -52,7 +52,7 @@ TextStyle Head6Text(textColor){
 InputDecoration AppInputDecoration(label){
   return  InputDecoration(
     focusedBorder: const OutlineInputBorder(
-      borderSide: const BorderSide(color: colorWhite,width: 1),
+      borderSide: const BorderSide(color: colorRed,width: 1),
     ),
     fillColor: colorWhite,
     filled: true,
@@ -60,7 +60,7 @@ InputDecoration AppInputDecoration(label){
     contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 20),
 
     enabledBorder: const OutlineInputBorder(
-      borderSide: const BorderSide(color: colorWhite,width: 0.0),
+      borderSide: const BorderSide(color:  colorRed,width: 0.0),
     ),
     border:OutlineInputBorder(),
     labelText: label
@@ -117,7 +117,7 @@ TextStyle ButtonTextStyle(){
 
 Ink SuccessButtonChild(String ButtonText){
   return  Ink(
-    decoration: BoxDecoration(color: colorWhite, borderRadius: BorderRadius.circular(6)),
+    decoration: BoxDecoration(color: colorRed, borderRadius: BorderRadius.circular(6)),
     child: Container(
       height: 45,
       alignment: Alignment.center,

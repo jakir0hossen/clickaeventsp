@@ -1,4 +1,5 @@
 import 'package:clickaeventsp/screen/onboarding/loginScreen.dart';
+import 'package:clickaeventsp/style/style.dart';
 import 'package:flutter/material.dart';
 
 
@@ -26,7 +27,7 @@ class Navbar extends StatelessWidget{
             ),
           ) ,
             decoration: BoxDecoration(
-                color:Colors.blueAccent
+                color:colorRed
             ),
 
            ),
